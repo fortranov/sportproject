@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.3'
 
 services:
   # Backend service
@@ -22,7 +22,6 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 40s
 
   # Frontend service
   frontend:
@@ -36,8 +35,7 @@ services:
       - NODE_ENV=production
       - NEXT_PUBLIC_API_URL=http://localhost:8000
     depends_on:
-      backend:
-        condition: service_healthy
+      - backend
     networks:
       - triathlon-network
     restart: unless-stopped
@@ -46,7 +44,6 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 40s
 
   # Nginx reverse proxy (optional, for production)
   nginx:
@@ -62,8 +59,6 @@ services:
     networks:
       - triathlon-network
     restart: unless-stopped
-    profiles:
-      - production
 
 networks:
   triathlon-network:
