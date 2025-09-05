@@ -1,7 +1,7 @@
 'use client';
 
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
-import { TrainingDay } from '../lib/types';
+import { TrainingDay } from '@/lib/types';
 
 interface TrainingChartProps {
   trainingDays: TrainingDay[];
@@ -58,7 +58,7 @@ export const TrainingChart: React.FC<TrainingChartProps> = ({ trainingDays }) =>
               outerRadius={80}
               fill="#8884d8"
               dataKey="value"
-              label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+              label={({ name, percent }) => `${name} ${percent ? (percent * 100).toFixed(0) : '0'}%`}
             >
               {pieData.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={entry.color} />

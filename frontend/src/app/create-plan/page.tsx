@@ -1,16 +1,16 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
-import { DifficultySelector } from '../../components/DifficultySelector';
-import { useCreatePlan } from '../../hooks/useTrainingPlan';
-import { CreatePlanRequest } from '../../lib/types';
-import { Button } from '../../components/ui/Button';
-import { Input } from '../../components/ui/Input';
-import { Card, CardHeader, CardTitle, CardContent } from '../../components/ui/Card';
+import { DifficultySelector } from '@/components/DifficultySelector';
+import { useCreatePlan } from '@/hooks/useTrainingPlan';
+import { CreatePlanRequest } from '@/lib/types';
+import { Button } from '@/components/ui/Button';
+import { Input } from '@/components/ui/Input';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 
-export default function CreatePlanPage() {
+function CreatePlanForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { createPlan, loading } = useCreatePlan();
@@ -106,6 +106,21 @@ export default function CreatePlanPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function CreatePlanPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Загрузка...</p>
+        </div>
+      </div>
+    }>
+      <CreatePlanForm />
+    </Suspense>
   );
 }
 

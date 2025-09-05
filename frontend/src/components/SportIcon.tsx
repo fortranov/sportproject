@@ -1,7 +1,7 @@
 'use client';
 
-import { Waves, Bike, Run } from 'lucide-react';
-import { SportType } from '../lib/types';
+import { Waves, Bike, PersonStanding } from 'lucide-react';
+import { SportType } from '@/lib/types';
 
 interface SportIconProps {
   sport: SportType;
@@ -21,7 +21,7 @@ export const SportIcon: React.FC<SportIconProps> = ({ sport, size = 24, classNam
     case 'cycling':
       return <Bike {...iconProps} />;
     case 'running':
-      return <Run {...iconProps} />;
+      return <PersonStanding {...iconProps} />;
     default:
       return null;
   }
