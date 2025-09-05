@@ -199,6 +199,21 @@ docker-compose build --no-cache
 
 Dockerfile настроен для установки всех зависимостей (включая devDependencies) на этапе сборки, но только production зависимостей в финальном образе.
 
+### Ошибки разрешения модулей (can't resolve @/lib/*)
+Если возникают ошибки типа "can't resolve @/lib/utils" или "can't resolve @/lib/api":
+
+1. **Проблема с standalone режимом**: Отключен standalone режим в `next.config.ts` для корректного разрешения путей
+2. **Алиас путей**: Убедитесь, что в `tsconfig.json` правильно настроен алиас:
+   ```json
+   "paths": {
+     "@/*": ["./src/*"]
+   }
+   ```
+3. **Пересборка**: Выполните полную пересборку без кэша:
+   ```bash
+   docker-compose build --no-cache frontend
+   ```
+
 ### Порты заняты
 ```bash
 # Проверить занятые порты
