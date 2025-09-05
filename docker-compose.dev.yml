@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  # Backend service for development
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: triathlon-backend-dev
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONPATH=/app
+      - DATABASE_URL=sqlite:///./triathlon_training.db
+      - RELOAD=true
+    volumes:
+      - ./backend:/app
+      - backend-data:/app/data
+    networks:
+      - triathlon-network
+    restart: unless-stopped
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+
+  # Frontend service for development
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    container_name: triathlon-frontend-dev
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - triathlon-network
+    restart: unless-stopped
+
+networks:
+  triathlon-network:
+    driver: bridge
+
+volumes:
+  backend-data:
+    driver: local
