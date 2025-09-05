@@ -187,6 +187,18 @@ deploy:
 
 ## Troubleshooting
 
+### TypeScript ошибки при сборке
+Если возникает ошибка "cannot find module typescript":
+```bash
+# Пересоберите образ без кэша
+docker-compose build --no-cache frontend
+
+# Или полная пересборка всех сервисов
+docker-compose build --no-cache
+```
+
+Dockerfile настроен для установки всех зависимостей (включая devDependencies) на этапе сборки, но только production зависимостей в финальном образе.
+
 ### Порты заняты
 ```bash
 # Проверить занятые порты
