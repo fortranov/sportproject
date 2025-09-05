@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Цвета видов спорта */
+  --swimming-color: #0ea5e9;
+  --cycling-color: #10b981;
+  --running-color: #f59e0b;
+  
+  /* Уровни сложности */
+  --beginner-color: #22c55e;
+  --intermediate-color: #f59e0b;
+  --advanced-color: #ef4444;
+  
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@layer components {
+  .sport-swimming {
+    @apply text-blue-500;
+  }
+  
+  .sport-cycling {
+    @apply text-green-500;
+  }
+  
+  .sport-running {
+    @apply text-orange-500;
+  }
+  
+  .difficulty-beginner {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .difficulty-intermediate {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+  
+  .difficulty-advanced {
+    @apply bg-red-100 text-red-800;
+  }
+}
+
+/* Анимации для календаря */
+.calendar-day {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.calendar-day:hover {
+  @apply scale-105 shadow-md;
+}
+
+/* Прогресс бары */
+.progress-bar {
+  @apply transition-all duration-500 ease-out;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
