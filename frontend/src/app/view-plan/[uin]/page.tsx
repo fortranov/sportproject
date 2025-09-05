@@ -5,13 +5,13 @@ import { useParams, useRouter } from 'next/navigation';
 import { format } from 'date-fns';
 import { ru } from 'date-fns/locale';
 import { Calendar, BarChart3, Trash2, Edit } from 'lucide-react';
-import { useTrainingPlan, useDeletePlan } from '@/hooks/useTrainingPlan';
-import { TrainingCalendar } from '@/components/TrainingCalendar';
-import { TrainingChart } from '@/components/TrainingChart';
-import { Button } from '@/components/ui/Button';
-import { Card, CardContent } from '@/components/ui/Card';
-import { TrainingDay } from '@/lib/types';
-import { getDifficultyLevel, getDifficultyColor, calculateWeeksUntil } from '@/lib/utils';
+import { useTrainingPlan, useDeletePlan } from '../../../hooks/useTrainingPlan';
+import { TrainingCalendar } from '../../../components/TrainingCalendar';
+import { TrainingChart } from '../../../components/TrainingChart';
+import { Button } from '../../../components/ui/Button';
+import { Card, CardContent } from '../../../components/ui/Card';
+import { TrainingDay } from '../../../lib/types';
+import { getDifficultyLevel, getDifficultyColor, calculateWeeksUntil } from '../../../lib/utils';
 import toast from 'react-hot-toast';
 
 export default function ViewPlanPage() {

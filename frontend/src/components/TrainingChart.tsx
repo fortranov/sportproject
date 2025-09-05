@@ -1,7 +1,7 @@
 'use client';
 
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
-import { TrainingDay } from '@/lib/types';
+import { TrainingDay } from '../lib/types';
 
 interface TrainingChartProps {
   trainingDays: TrainingDay[];

@@ -3,12 +3,12 @@
 import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
-import { DifficultySelector } from '@/components/DifficultySelector';
-import { useCreatePlan } from '@/hooks/useTrainingPlan';
-import { CreatePlanRequest } from '@/lib/types';
-import { Button } from '@/components/ui/Button';
-import { Input } from '@/components/ui/Input';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
+import { DifficultySelector } from '../../components/DifficultySelector';
+import { useCreatePlan } from '../../hooks/useTrainingPlan';
+import { CreatePlanRequest } from '../../lib/types';
+import { Button } from '../../components/ui/Button';
+import { Input } from '../../components/ui/Input';
+import { Card, CardHeader, CardTitle, CardContent } from '../../components/ui/Card';
 
 export default function CreatePlanPage() {
   const router = useRouter();

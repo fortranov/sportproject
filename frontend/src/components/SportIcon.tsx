@@ -1,7 +1,7 @@
 'use client';
 
 import { Waves, Bike, Run } from 'lucide-react';
-import { SportType } from '@/lib/types';
+import { SportType } from '../lib/types';
 
 interface SportIconProps {
   sport: SportType;

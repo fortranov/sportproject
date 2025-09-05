@@ -1,7 +1,7 @@
 import useSWR from 'swr';
 import { useState } from 'react';
-import { trainingApi } from '@/lib/api';
-import { TrainingPlan, CreatePlanRequest } from '@/lib/types';
+import { trainingApi } from '../lib/api';
+import { TrainingPlan, CreatePlanRequest } from '../lib/types';
 import toast from 'react-hot-toast';
 
 export const useTrainingPlan = (uin?: string) => {

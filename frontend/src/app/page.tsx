@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { SportIcon } from '@/components/SportIcon';
-import { Button } from '@/components/ui/Button';
-import { Card, CardContent } from '@/components/ui/Card';
+import { SportIcon } from '../components/SportIcon';
+import { Button } from '../components/ui/Button';
+import { Card, CardContent } from '../components/ui/Card';
 
 export default function HomePage() {
   return (

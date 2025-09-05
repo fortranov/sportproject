@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { format, startOfMonth, endOfMonth, eachDayOfInterval, isSameMonth, isToday, startOfWeek, endOfWeek } from 'date-fns';
 import { ru } from 'date-fns/locale';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { TrainingDay } from '@/lib/types';
+import { TrainingDay } from '../lib/types';
 import { SportIcon } from './SportIcon';
 import { Button } from './ui/Button';
 
