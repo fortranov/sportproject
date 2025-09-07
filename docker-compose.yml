@@ -7,8 +7,7 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     container_name: triathlon-backend
-    ports:
-      - "8000:8000"
+    # Порт не экспонируется наружу для безопасности - доступ только через Nginx
     environment:
       - PYTHONPATH=/app
       - DATABASE_URL=sqlite:///./triathlon_training.db
@@ -30,11 +29,10 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     container_name: triathlon-frontend
-    ports:
-      - "3000:3000"
+    # Порт не экспонируется наружу - доступ только через Nginx
     environment:
       - NODE_ENV=production
-      - NEXT_PUBLIC_API_URL=http://backend:8000
+      - NEXT_PUBLIC_API_URL=  # В продакшене API доступен через тот же домен (Nginx)
     depends_on:
       - backend
     networks:

@@ -1,7 +1,10 @@
 import axios from 'axios';
 import { TrainingPlan, CreatePlanRequest } from './types';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+// В продакшене API доступен через тот же домен (Nginx proxy)
+// В разработке - напрямую к backend
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 
+  (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8000');
 
 const api = axios.create({
   baseURL: API_BASE_URL,

@@ -31,7 +31,7 @@ services:
     container_name: triathlon-frontend-prod
     environment:
       - NODE_ENV=production
-      - NEXT_PUBLIC_API_URL=http://localhost  # API через Nginx на том же домене
+      - NEXT_PUBLIC_API_URL=  # Пустая строка означает тот же домен
     depends_on:
       - backend
     networks:
