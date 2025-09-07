@@ -7,7 +7,7 @@ import requests
 import json
 from datetime import date, timedelta
 
-BASE_URL = "http://localhost:8000"
+BASE_URL = "http://127.0.0.1:8000"
 
 def test_service():
     print("🏊‍♂️🚴‍♂️🏃‍♂️ Тестирование Triathlon Training Service")
